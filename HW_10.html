@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="content">
+
+    </div>
+
+
+
+    <script src="data.js"></script>
+
+    <script>
+        const data = JSON.parse(dataInfo);
+        data.forEach(element => {
+
+            const divEl = document.createElement('div');
+            divEl.classList.add('from_JSON');
+            document.querySelector('.content').appendChild(divEl);
+
+            const imgEl = document.createElement('img');
+            imgEl.classList.add('imgJs');
+            imgEl.setAttribute('alt', 'foto');
+            divEl.appendChild(imgEl);
+            imgEl.src = element.img;
+
+            const h3El = document.createElement('h3');
+            h3El.classList.add('APIJs');
+            divEl.appendChild(h3El);
+            h3El.textContent = element.API;
+
+            const pEl = document.createElement('p');
+            h3El.classList.add('DescriptionJs');
+            divEl.appendChild(pEl);
+            pEl.textContent = element.Description;
+
+
+            const aEl = document.createElement('a');
+            aEl.classList.add('aJs');
+            divEl.appendChild(aEl);
+            aEl.textContent = 'жми сюда'
+            aEl.href = element.Link;
+
+        });
+
+
+
+    </script>
+
+
+
+
+</body>
+
+</html>
